@@ -67,7 +67,7 @@ const Register = (props) => {
   }, [useCheck, ageCheck]); // 이용약관 동의 체크박스와 만 14세 이상 동의 체크박스의 상태 변화를 감지하는 useEffect의 의존성 배열
 
   return (
-    <div className="wrapper">
+    <div className="Ragister-wrap">
       <div className="logo-box">
         <h1>
           <img src={logo} alt="대전시청 로고" />

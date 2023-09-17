@@ -31,7 +31,7 @@ const Join = (props) => {
   };
 
   return (
-    <div className="wrapper">
+    <div className="join-wrap">
       <div className="join-container">
         <form onSubmit={(e) => handleJoin(e)}>
           <div className="logo-box">
