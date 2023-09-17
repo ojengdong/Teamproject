@@ -13,6 +13,16 @@ select:focus {
     outline: none;
 }
 
+.join-wrap{
+    width: 100%;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Pretendard-Medium';
+}
+
 .join-container {
     width: 1200px;
     display: flex;

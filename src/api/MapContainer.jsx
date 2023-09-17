@@ -7,6 +7,7 @@ import MainImg from "../images/반도체.jpg";
 import logo from "../images/logo.png";
 import Modal from "../Component/Modal";
 import Free from "../Component/Freeboard";
+import Register from "../pages/LoginRegister/Register"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
 
@@ -102,14 +103,16 @@ const MapContainer = ({ searchPlace }) => {
           </div>
 
           <div className="gnb-btnBox">
-            <Link to='/login'>
+            <Link to="/login">
               <button className="loginBtn" type="button">
                 로그인
               </button>
             </Link>
-            <button className="joinBtn" type="button">
-              회원가입
-            </button>
+            <Link to="/Register">
+              <button className="joinBtn" type="button">
+                회원가입
+              </button>
+            </Link>
           </div>
         </div>
         <div className="imgTxt">

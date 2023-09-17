@@ -1,12 +1,12 @@
 /* eslint-disable */
 import React from "react";
-import './Register.css'
+import "./Register.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import checkimg from "./images/동의 아이콘 1.png" // check
-import uncheck from "./images/동의 아이콘 2.png" // uncheck
-import logo from "./images/logo.png" // logo
-import linkimg from "./images/동의 아이콘 4.png"// link
+import checkimg from "./images/동의 아이콘 1.png"; // check
+import uncheck from "./images/동의 아이콘 2.png"; // uncheck
+import logo from "./images/logo.png"; // logo
+import linkimg from "./images/동의 아이콘 4.png"; // link
 
 const Register = (props) => {
   // |이 코드는 약관 동의 체크박스를 구현하는 코드입니다.
@@ -98,8 +98,8 @@ const Register = (props) => {
               <div className="all-check-text">
                 <strong>모두 동의합니다.</strong>
                 <br />
-                대전광역시 이용약관, 개인수집 및 이용,개인정보처리 업무위탁에 대한
-                동의에 모두 동의합니다.
+                대전광역시 이용약관, 개인수집 및 이용,개인정보처리 업무위탁에
+                대한 동의에 모두 동의합니다.
               </div>
             </span>
           </label>
@@ -250,9 +250,11 @@ const Register = (props) => {
         </div> */}
 
         <div className="ragister-btn-box">
-          <button className="prev-btn" type="button">
-            취소
-          </button>
+          <Link to="/">
+            <button className="prev-btn" type="button">
+              취소
+            </button>
+          </Link>
 
           <Link to="/Join">
             <button className="next-btn" type="submit" onClick={check}>
