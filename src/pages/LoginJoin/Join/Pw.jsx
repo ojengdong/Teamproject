@@ -14,6 +14,7 @@ const Pw = (props) => {
   const [passwordChk, setPasswordChk] = useState(""); // 비밀번호 확인 상태값
   const [pwMessage, setPwMessage] = useState(""); // 비밀번호 유효성 메시지 상태값
   const [pwChkMessage, setPwChkMessage] = useState(""); // 비밀번호 확인 유효성 메시지 상태값
+  const [isError, setIsError] = useState(false);
 
   const handlePassword = (e) => {
     // 비밀번호 입력 이벤트 핸들러
@@ -26,12 +27,15 @@ const Pw = (props) => {
     if (password.length === 0) {
       // 비밀번호가 입력되지 않은 경우
       setPwMessage("비밀번호를 입력해주세요"); // 비밀번호 유효성 메시지 업데이트
+      setIsError(true);
     } else if (password.length < 8 || password.length > 16) {
       // 비밀번호가 8자 미만 또는 16자 초과인 경우
       setPwMessage("8 ~ 16자 가능합니다"); // 비밀번호 유효성 메시지 업데이트
+      setIsError(true);
     } else {
       // 비밀번호가 유효한 경우
       setPwMessage("사용가능합니다."); // 비밀번호 유효성 메시지 업데이트
+      setIsError(false);
     }
   };
 
@@ -43,17 +47,17 @@ const Pw = (props) => {
     if (passwordChk.length === 0) {
       // 비밀번호 확인이 입력되지 않은 경우
       setPwChkMessage("필수요소입니다."); // 비밀번호 확인 유효성 메시지 업데이트
-
+      setIsError(true);
       props.setPWVeri(false); // 부모 컴포넌트의 비밀번호 확인 상태값 업데이트
     } else if (password !== passwordChk) {
       // 비밀번호와 비밀번호 확인이 다른 경우
       setPwChkMessage("비밀번호가 다릅니다."); // 비밀번호 확인 유효성 메시지 업데이트
-
+      setIsError(true);
       props.setPWVeri(false); // 부모 컴포넌트의 비밀번호 확인 상태값 업데이트
     } else {
       // 비밀번호와 비밀번호 확인이 같은 경우
       setPwChkMessage(""); // 비밀번호 확인 유효성 메시지 초기화
-
+      setIsError(false);
       props.setPWVeri(true); // 부모 컴포넌트의 비밀번호 확인 상태값 업데이트
     }
   };
@@ -72,7 +76,7 @@ const Pw = (props) => {
               onBlur={handlePassword}
             />
           </div>
-          <p className="warn">{pwMessage}</p>
+          <p className={isError ? "warn" : "success"}>{pwMessage}</p>
         </div>
 
         <div className="pw-chk  margin">
@@ -86,7 +90,7 @@ const Pw = (props) => {
               onBlur={handlePasswordChk}
             />
           </div>
-          <p className="warn">{pwChkMessage}</p>
+          <p className={isError ? "warn" : "success"}>{pwChkMessage}</p>
         </div>
       </div>
     </div>

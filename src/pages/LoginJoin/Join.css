@@ -50,6 +50,14 @@ strong {
     height: 45px;
 }
 
+.warn {
+    color: red;
+}
+
+.success{
+    color: black;
+}
+
 .inp input {
     width: 430px;
     height: 35px;

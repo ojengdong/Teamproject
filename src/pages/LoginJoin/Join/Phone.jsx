@@ -11,6 +11,7 @@ const Phone = (props) => {
   const [veritext, setVeritext] = useState(""); // 인증번호를 입력받는 state
   const [phonenumMessage, setPhoneMessage] = useState(""); // 전화번호 입력 시 메시지를 표시하는 state
   const [veritextMessage, setVeriTextMessage] = useState(""); // 인증번호 입력 시 메시지를 표시하는 state
+  const [isError, setIsError] = useState(false);
 
   const phoneNumber = (e) => {
     // 전화번호 입력 시 실행되는 함수
@@ -18,15 +19,19 @@ const Phone = (props) => {
     if (phoneNum.length === 0) {
       // 전화번호가 입력되지 않은 경우
       setPhoneMessage("필수요소입니다"); // 메시지 업데이트
+      setIsError(true);
     } else if (phoneNum.length > 11) {
       // 전화번호가 11자리를 초과하는 경우
       setPhoneMessage("번호 11자리 입력하세요"); // 메시지 업데이트
+      setIsError(true);
     } else if (isNaN(phoneNum)) {
       // 전화번호가 숫자가 아닌 경우
       setPhoneMessage("숫자만 입력해주세요"); // 메시지 업데이트
+      setIsError(true);
     } else {
       // 전화번호가 유효한 경우
       setPhoneMessage(""); // 메시지 초기화
+      setIsError(false);
     }
   };
 
@@ -43,14 +48,17 @@ const Phone = (props) => {
     if (e.target.value === "1234") {
       // 인증번호가 일치하는 경우
       setVeriTextMessage("인증되었습니다."); // 메시지 업데이트
+      setIsError(false);
       props.setPhoneVeri(true); // 전화번호 인증 상태를 true로 업데이트
     } else if (e.target.value.length === 0) {
       // 인증번호가 입력되지 않은 경우
       setVeriTextMessage("인증번호를 입력해주세요"); // 메시지 업데이트
+      setIsError(true);
       props.setPhoneVeri(false); // 전화번호 인증 상태를 false로 업데이트
     } else {
       // 인증번호가 일치하지 않는 경우
       setVeriTextMessage("인증번호 다시 확인해주세요."); // 메시지 업데이트
+      setIsError(true);
       props.setPhoneVeri(false); // 전화번호 인증 상태를 false로 업데이트
     }
   };
@@ -83,13 +91,13 @@ const Phone = (props) => {
               인증번호
             </button>
           </div>
-          <p className="warn">{phonenumMessage}</p>
+          <p className={isError ? "warn" : "success"}>{phonenumMessage}</p>
 
           <div className="disinput inp">
             <input type="text" placeholder="인증번호" onChange={numtxt} />
           </div>
 
-          <p>{veritextMessage}</p>
+          <p className={isError ? "warn" : "success"}>{veritextMessage}</p>
 
           <div className="event">
             <label for="chk">

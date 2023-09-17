@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import '../Join.css'
+import "../Join.css";
 
 const Impo = (props) => {
   const [name, setName] = useState(""); // 이름 상태값과 상태를 변경할 함수를 정의하고 초기값을 빈 문자열로 설정
@@ -9,7 +9,7 @@ const Impo = (props) => {
   const [year, setYear] = useState(""); // 생년 상태값과 상태를 변경할 함수를 정의하고 초기값을 빈 문자열로 설정
   const [month, setMonth] = useState(""); // 생월 상태값과 상태를 변경할 함수를 정의하고 초기값을 빈 문자열로 설정
   const [day, setDay] = useState(""); // 생일 상태값과 상태를 변경할 함수를 정의하고 초기값을 빈 문자열로 설정
-
+  const [isError, setIsError] = useState(false);
   const [nameMessage, setNameMessage] = useState(""); // 이름 입력에 대한 안내 메시지 상태값과 상태를 변경할 함수를 정의하고 초기값을 빈 문자열로 설정
   const [emailMessage, setEmailMessage] = useState(""); // 이메일 입력에 대한 안내 메시지 상태값과 상태를 변경할 함수를 정의하고 초기값을 빈 문자열로 설정
   const [birthMessage, setBirthMessage] = useState(""); // 생년월일 입력에 대한 안내 메시지 상태값과 상태를 변경할 함수를 정의하고 초기값을 빈 문자열로 설정
@@ -25,10 +25,12 @@ const Impo = (props) => {
     if (name.length === 0) {
       // 이름이 입력되지 않았을 경우
       setNameMessage("필수요소입니다."); // 이름 입력에 대한 안내 메시지를 설정
+      setIsError(true);
       props.setImpoVeri(false); // 필수 입력 항목이 모두 입력되었는지 확인하는 상태값을 false로 설정
     } else {
       // 이름이 입력되었을 경우
       setNameMessage(""); // 이름 입력에 대한 안내 메시지를 초기화
+      setIsError(false);
       props.setImpoVeri(true); // 필수 입력 항목이 모두 입력되었는지 확인하는 상태값을 true로 설정
     }
   };
@@ -43,10 +45,12 @@ const Impo = (props) => {
   const emailfocus = (e) => {
     // email 입력창에 focus가 되었을 때 실행되는 함수
     setEmail(e.target.value); // 입력된 이메일 값을 setEmail 함수를 이용해 저장
-    let emailregExp = /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/i; // 이메일 정규식
+    let emailregExp =
+      /^[A-Za-z0-9]([-_.]?[A-Za-z0-9])*@[A-Za-z0-9]([-_.]?[A-Za-z0-9])*\.[A-Za-z]{2,3}$/i; // 이메일 정규식
     if (email === !emailregExp) {
       // 입력된 이메일 값이 이메일 정규식과 일치하지 않을 경우
       setEmailMessage("이메일 주소를 다시 확인해주세요"); // setEmailMessage 함수를 이용해 이메일 주소를 다시 확인하라는 메시지 출력
+      setIsError(true);
     } else {
       // 입력된 이메일 값이 이메일 정규식과 일치할 경우
       setEmailMessage(""); // setEmailMessage 함수를 이용해 메시지를 초기화
@@ -58,7 +62,7 @@ const Impo = (props) => {
   // |코드 특징:
   // |- 입력된 생년월일 값이 유효한지 검사하여, 잘못된 값이 입력되었을 경우 안내 메시지를 설정합니다.
   // |- 필수 입력 항목이 모두 입력되었는지 확인하는 상태값을 설정하여, 다음 단계로 진행할 수 있는지 여부를 판단할 수 있습니다.
- 
+
   const birth = (e) => {
     // 생년월일 입력란에서 값이 변경될 때 실행되는 함수
     let now = new Date(); // 현재 날짜를 생성
@@ -71,18 +75,22 @@ const Impo = (props) => {
     if (isNaN(year) || isNaN(month) || isNaN(day)) {
       // 입력된 생년월일 값이 숫자가 아닐 경우
       setBirthMessage("생년월일을 다시 확인해주세요"); // 생년월일 입력에 대한 안내 메시지를 설정
+      setIsError(true);
       props.setImpoVeri(false); // 필수 입력 항목이 모두 입력되었는지 확인하는 상태값을 false로 설정
     } else if (year.length !== 4 && year.length === "") {
       // 입력된 생년도 값이 4자리가 아니거나 입력되지 않았을 경우
       setBirthMessage("태어난 연도 4자리를 정확하게 입력해주세요"); // 생년월일 입력에 대한 안내 메시지를 설정
+      setIsError(true)
       props.setImpoVeri(false); // 필수 입력 항목이 모두 입력되었는지 확인하는 상태값을 false로 설정
     } else if (day.length === 0 && day > 31 && day < 1) {
       // 입력된 생일 값이 1~31 사이의 값이 아닐 경우
       setBirthMessage("태어난 일(날짜)을 정확하게 입력해주세요"); // 생년월일 입력에 대한 안내 메시지를 설정
+      setIsError(true)
       props.setImpoVeri(false); // 필수 입력 항목이 모두 입력되었는지 확인하는 상태값을 false로 설정
     } else {
       // 모든 입력값이 유효할 경우
       setBirthMessage(""); // 생년월일 입력에 대한 안내 메시지를 초기화
+      setIsError(false)
       props.setImpoVeri(true); // 필수 입력 항목이 모두 입력되었는지 확인하는 상태값을 true로 설정
     }
   };
@@ -178,12 +186,17 @@ const Impo = (props) => {
           본인 확인 이메일<span>(선택)</span>
         </strong>
         <div className="inp">
-          <input type="text" name="email" onChange={emailfocus} onBlur={emailfocus}/>
+          <input
+            type="text"
+            name="email"
+            onChange={emailfocus}
+            onBlur={emailfocus}
+          />
         </div>
-        <p className="warn">{emailMessage}</p>
+        <p className={isError ? 'warn' : 'sucess'}>{emailMessage}</p>
       </div>
     </div>
   );
-}
+};
 
-export default Impo
+export default Impo;
