@@ -23,7 +23,7 @@ const Join = (props) => {
       const Id = localStorage.getItem("id"); // 로컬 스토리지에서 ID 가져오기
       const password = localStorage.getItem("Password"); // 로컬 스토리지에서 비밀번호 가져오기
       console.log(Id, password);
-      navigate("/Login"); // 로그인 페이지로 이동
+      navigate("/login"); // 로그인 페이지로 이동
     } else {
       // 검증이 완료되지 않았을 경우
       alert("필수입력항목을 입력해주세요"); // 경고창 띄우기

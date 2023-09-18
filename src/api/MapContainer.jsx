@@ -1,13 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Map, MapMarker, CustomOverlayMap } from "react-kakao-maps-sdk";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 import "./MapContainer.css";
 import MainImg from "../images/반도체.jpg";
 import logo from "../images/logo.png";
 import Modal from "../Component/Modal";
-import Free from "../Component/Freeboard";
-import Register from "../pages/LoginRegister/Register"
+import Freeboard from "../Component/Freeboard";
+import Register from "../pages/LoginRegister/Register";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
 
@@ -102,17 +102,34 @@ const MapContainer = ({ searchPlace }) => {
             </h1>
           </div>
 
-          <div className="gnb-btnBox">
-            <Link to="/login">
-              <button className="loginBtn" type="button">
-                로그인
-              </button>
-            </Link>
-            <Link to="/Register">
-              <button className="joinBtn" type="button">
-                회원가입
-              </button>
-            </Link>
+          <div className="gnb-menuBox">
+            <div className="menu">
+              <ul className="menuItem">
+                <Link>
+                  <li className="menuList">공지사항</li>
+                </Link>
+
+                <Link to="/Freeboard">
+                  <li className="menuList">문의하기</li>
+                </Link>
+                
+                <Link>
+                  <li className="menuList">이력서</li>
+                </Link>
+              </ul>
+            </div>
+            <div className="BtnBox">
+              <Link to="/login">
+                <button className="loginBtn" type="button">
+                  로그인
+                </button>
+              </Link>
+              <Link to="/Register">
+                <button className="joinBtn" type="button">
+                  회원가입
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
         <div className="imgTxt">
@@ -177,7 +194,6 @@ const MapContainer = ({ searchPlace }) => {
           )}
         </Map>
       </div>
-      <Free />
 
       <footer>
         <div className="footer-wrap">

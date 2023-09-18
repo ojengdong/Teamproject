@@ -9,6 +9,9 @@ a {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
 
 .global-header {
   width: 100%;
@@ -36,13 +39,36 @@ a {
   margin: 20px;
 }
 
-.gnb-btnBox{
+.gnb-menuBox{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  width: 200px;
   margin-right: 30px;
+  width: 600px;
 }
+
+.menu{
+  width: fit-content;  
+  margin: 0 auto;
+}
+
+.menuItem{
+  /* border: 2px solid blue; */
+  display: flex;
+}
+
+.menuList{
+  width: fit-content;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px;
+  color: #fff;
+  opacity: 0.8  ;
+}
+
+
 
 .loginBtn{
   width: 90px;
@@ -118,7 +144,7 @@ a {
 .map-item {
   width: 70%;
   height: 600px;
-  margin: 0 auto;
+  margin: 0 auto 70px auto;
 }
 
 .marker {

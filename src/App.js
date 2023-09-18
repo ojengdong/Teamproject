@@ -7,6 +7,7 @@ import MapContainer from "./api/MapContainer"
 import Login from "./pages/Login/Login"
 import Register from "./pages/LoginRegister/Register"
 import Join from "./pages/LoginJoin/Join"
+import Freeboard from "./Component/Freeboard";
 
 const { kakao } = window;
 
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/Register" element={<Register/>} />
         <Route path="/Join" element={<Join/>} />
+        <Route path="/Freeboard" element={<Freeboard/>} />
       </Routes>
     </div>
   );
