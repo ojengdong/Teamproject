@@ -1,20 +1,21 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import "./Modal.css";
 const Modal = ({ onClose, data }) => {
   const [stockInfo, setStockInfo] = useState(null);
   useEffect(() => {
     const fetchStockInfo = async () => {
       if (data.finance !== null && data.finance !== "") {
-        // Check if data.finance is defined and not empty
         try {
-          const response = await fetch(`/sp?index=${data.finance}`); // Use the finance field as index
+          const response = await fetch(`/sp?index=${data.finance}`);
           const info = await response.json();
           setStockInfo(info);
         } catch (error) {
           console.error("Error fetching stock info:", error);
         }
       } else {
-        // 주가정보가 없을경우
+        // Set a specific message when finance is null
+        setStockInfo({ message: "비상장 회사입니다" });
       }
     };
 
@@ -22,51 +23,39 @@ const Modal = ({ onClose, data }) => {
   }, [data]);
 
   return (
-    <div style={styles.overlay}>
-      <div style={styles.modal}>
+    <div className="overlay">
+      <div className="modal">
         <h2>{data.title}</h2>
-        <strong>{data.adress}</strong> <br />
+        <strong className="adress">{data.adress}</strong> <br />
         <a href={data.homepage} target="_blank" rel="noopener noreferrer">
           홈페이지로 이동하기
         </a>
         <br />
+        <div className="border"></div>
         {/* Display fetched stock info */}
         {stockInfo && (
-          <>
+          <div className="stocks">
             <h3>주가정보</h3>
-            {/* Assuming that your API returns an object where keys are names and values are prices */}
-            {Object.entries(stockInfo).map(([name, price]) => (
-              <p key={name}>
-                {name}: {price}
-              </p>
-            ))}
-          </>
+            {/* Check if it's an unlisted company */}
+            {stockInfo.message ? (
+              <p>{stockInfo.message}</p>
+            ) : (
+              Object.entries(stockInfo).map(([name, price]) => (
+                <p key={name}>
+                  {name}: {price}
+                </p>
+              ))
+            )}
+          </div>
         )}
-        <button onClick={onClose}>Close</button>
+        <div className="BtnBox">
+          <button className="closeBtn" onClick={onClose}>
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );
-};
-
-const styles = {
-  overlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    backgroundColor: "rgba(0,0,0,0.7)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1000,
-  },
-  modal: {
-    backgroundColor: "white",
-    width: "400px",
-    padding: "20px",
-    borderRadius: "10px",
-  },
 };
 
 export default Modal;
