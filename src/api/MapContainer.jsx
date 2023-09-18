@@ -10,6 +10,7 @@ import Freeboard from "../Component/Freeboard";
 import Register from "../pages/LoginRegister/Register";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const { kakao } = window;
 const MapContainer = ({ searchPlace }) => {
@@ -98,7 +99,7 @@ const MapContainer = ({ searchPlace }) => {
         <div className="gnb">
           <div className="gnb-logoBox">
             <h1>
-              <img className="gnb-logo" src={logo} alt="" />
+              <img className="gnb-logo" src={logo} alt="로고" />
             </h1>
           </div>
 
@@ -112,7 +113,7 @@ const MapContainer = ({ searchPlace }) => {
                 <Link to="/Freeboard">
                   <li className="menuList">문의하기</li>
                 </Link>
-                
+
                 <Link>
                   <li className="menuList">이력서</li>
                 </Link>
@@ -132,10 +133,32 @@ const MapContainer = ({ searchPlace }) => {
             </div>
           </div>
         </div>
-        <div className="imgTxt">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <div className="imgTxtBox">
+          <div className="searchBox">
+            <form
+              className="searchForm"
+              action="https://www.google.com/search"
+              target="_blank"
+              method="GET"
+            >
+              <input
+                name="q"
+                type="text"
+                placeholder="검색하시면 Goggle페이지로 이동합니다."
+                size="100"
+              />
+              <FontAwesomeIcon
+                className="searchIcon"
+                icon={faMagnifyingGlass}
+              />
+            </form>
+          </div>
 
-          <h1>ABOUT US</h1>
+          <div className="imgTxt">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+            <h1>ABOUT US</h1>
+          </div>
         </div>
       </header>
 
@@ -185,6 +208,7 @@ const MapContainer = ({ searchPlace }) => {
               )}
             </MapMarker>
           ))}
+
           {/* 모달컴포넌트 랜더링 */}
           {activemodal !== null && (
             <Modal
@@ -204,7 +228,7 @@ const MapContainer = ({ searchPlace }) => {
             <span>한국데이터기술진흥협회</span>
             <span>
               팀프로젝트 기간 : 9월 11일 ~ 9월 25일(14일) &nbsp;&nbsp; 교육장소
-              : DW아카데미학원{" "}
+              : DW아카데미학원
             </span>
           </div>
         </div>

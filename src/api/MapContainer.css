@@ -33,13 +33,13 @@ li {
   justify-content: space-between;
 }
 
-.gnb-logo{
+.gnb-logo {
   width: 70px;
   filter: opacity(0.5) drop-shadow(0 0 0 #fff);
   margin: 20px;
 }
 
-.gnb-menuBox{
+.gnb-menuBox {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,17 +47,17 @@ li {
   width: 600px;
 }
 
-.menu{
-  width: fit-content;  
+.menu {
+  width: fit-content;
   margin: 0 auto;
 }
 
-.menuItem{
+.menuItem {
   /* border: 2px solid blue; */
   display: flex;
 }
 
-.menuList{
+.menuList {
   width: fit-content;
   height: 45px;
   display: flex;
@@ -65,14 +65,12 @@ li {
   justify-content: center;
   margin: 0 8px;
   color: #fff;
-  opacity: 0.8  ;
+  opacity: 0.8;
 }
 
-
-
-.loginBtn{
+.loginBtn {
   width: 90px;
-  height: 45px;;
+  height: 45px;
   border: 1px solid #fff;
   border-radius: 5px;
   background-color: #fff;
@@ -84,10 +82,10 @@ li {
 }
 
 .loginBtn:hover {
-  opacity : 0.5;
+  opacity: 0.5;
 }
 
-.joinBtn{
+.joinBtn {
   width: 90px;
   height: 45px;
   border: 2px solid #fff;
@@ -100,12 +98,47 @@ li {
   transition: all 500ms ease-in-out;
 }
 
-.joinBtn:hover{
+.joinBtn:hover {
   opacity: 0.6;
 }
 
+.searchBox {
+  border: 2px solid #fff;
+  border-radius: 13px;
+  width: 400px;
+  height: 50px;
+  position: absolute;
+  top: 40%;
+  left: 15%;
+  padding: 5px;
+}
+
+.searchBox input {
+  width: 350px;
+  height: 35px;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.searchBox input::placeholder {
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+  margin: auto 5px;
+  color: #fff;
+}
 
 .imgTxt {
+  margin-top: 15px;
   position: absolute;
   top: 50%;
   left: 15%;
@@ -170,7 +203,7 @@ li {
   padding: 0 20px;
 }
 
-.footerTop{
+.footerTop {
   display: flex;
   align-items: center;
   height: 150px;
@@ -182,12 +215,12 @@ li {
   padding: 8px;
 }
 
-.footerUnder span:first-child{
+.footerUnder span:first-child {
   margin-bottom: 5px;
   font-size: 20px;
   font-weight: bold;
 }
 
-.footerUnder span:last-child{
+.footerUnder span:last-child {
   font-size: 18px;
 }

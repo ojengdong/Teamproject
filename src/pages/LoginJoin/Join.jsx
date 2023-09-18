@@ -36,7 +36,9 @@ const Join = (props) => {
         <form onSubmit={(e) => handleJoin(e)}>
           <div className="logo-box">
             <h1>
-              <img src={logo} alt="" />
+              <Link to='/'>
+                <img src={logo} alt="logo" />
+              </Link>
             </h1>
           </div>
           <div className="inputbox">
@@ -46,7 +48,9 @@ const Join = (props) => {
             <Phone setPhoneVeri={setPhoneVeri} />
           </div>
           <div className="join-btn-box">
-            <button type="submit" onClick={handleJoin}>가입하기</button>
+            <button type="submit" onClick={handleJoin}>
+              가입하기
+            </button>
           </div>
           {/* <Foote
 import Footer from "../../components/LoginFooter";r /> */}

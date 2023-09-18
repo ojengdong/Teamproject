@@ -25,6 +25,7 @@ function App() {
         <Route path="/Register" element={<Register/>} />
         <Route path="/Join" element={<Join/>} />
         <Route path="/Freeboard" element={<Freeboard/>} />
+        <Route path="/Anno" element={<anno/>} />
       </Routes>
     </div>
   );

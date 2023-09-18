@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import "./Modal.css";
+
 const Modal = ({ onClose, data }) => {
   const [stockInfo, setStockInfo] = useState(null);
   useEffect(() => {
