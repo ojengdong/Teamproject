@@ -5,6 +5,9 @@ import { Map, MapMarker } from "react-kakao-maps-sdk";
 import "./MapContainer.css";
 import MainImg from "../images/반도체.jpg";
 import logo from "../images/logo.png";
+import instagram from "../images/인스타그램.png";
+import facebook from "../images/페이스북.png";
+import youtube from "../images/유튜브.png";
 import Modal from "../Component/Modal";
 import Freeboard from "../Component/Freeboard";
 import Register from "../pages/LoginRegister/Register";
@@ -222,14 +225,46 @@ const MapContainer = ({ searchPlace }) => {
       <footer>
         <div className="footer-wrap">
           <div className="footerTop">
-            <h1>팀프로젝트 화이팅</h1>
+            <ul className="footerTop-list">
+              <li className="footerTop-item1">개인정보처리</li>
+              <li className="footerTop-item">영상정보처리기기운영관리방침</li>
+              <li className="footerTop-item">저작권정책</li>
+              <li className="footerTop-item">이메일무단수집거부</li>
+              <li className="footerTop-item">관련사이트</li>
+              <li className="footerTop-item">뷰어다운로드</li>
+            </ul>
           </div>
           <div className="footerUnder">
-            <span>한국데이터기술진흥협회</span>
-            <span>
-              팀프로젝트 기간 : 9월 11일 ~ 9월 25일(14일) &nbsp;&nbsp; 교육장소
-              : DW아카데미학원
-            </span>
+            <div className="footerLogo-Txt">
+              <div className="footerLogo">
+                <img src={logo} alt="" />
+              </div>
+
+              <div className="footerTxtBox">
+                <span>
+                  (우)34838 대전 중앙로 121번길 20 전화: 042-000-0000 팩스:
+                  042-111-1111
+                  <br />
+                  <br />본 홈페이지는 게시된 이메일 주소가 자동 수집되는 것을
+                  거부하며 이를 위반시 정보통신망법에 의해 처벌됨을 유념하여
+                  주시기 바랍니다.
+                </span>
+              </div>
+            </div>
+
+            <div className="footerBtnBox">
+              <div className="trafficBtn">
+                <a href="https://www.utic.go.kr/main/main.do" target="_blank">
+                  <button type="button">현재 교통상황보기</button>
+                </a>
+              </div>
+
+              <div className="mapSite">
+                <a href="https://map.kakao.com/" target="_blank">
+                  <button type="button">카카오 지도열기</button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </footer>
