@@ -1,11 +1,27 @@
-.question{
-    width: 100%;
+.question {
+  width: 100%;
 }
 
 .question h1 {
-    width: 70%;
-    height: 150px;
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
+  width: 70%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.Info {
+  width: 80%;
+  margin: 10px auto;
+}
+
+.tableBox {
+  width: 80%;
+  height: 500px;
+  margin: 0 auto;
+}
+
+.tableBox td {
+  text-align: center;
 }
