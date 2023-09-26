@@ -29,19 +29,32 @@
 
 			<!-- 파일 첨부-->
 			<div class="file-submit-box">
-				<div class="fileBox">
-					<p>첨부파일</p>
-					<label class="iconLabel" for="file">
-						<i class="fa-solid fa-paperclip"></i>
-						<span id="selectedFileName">파일 선택</span>
-						<input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
-					</label>
+    <div class="fileBox">
+        <p>첨부파일</p>
+        <label class="iconLabel" for="file">
+            <i class="fa-solid fa-paperclip"></i>
+            <span id="selectedFileName">파일 선택</span>
+            <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" onchange="displayFileName(this)">
+        </label>
+    </div>
+    <button type="submit">전송</button>
+</div>
+<p id="fileNotSelectedText" style="display: none;">선택한 파일 없음</p>
 
-				</div>
-				<button type="submit">전송</button>
-			</div>
-		</form>
-	</div>
+<script>
+    function displayFileName(input) {
+        const selectedFileName = document.getElementById("selectedFileName");
+        const fileNotSelectedText = document.getElementById("fileNotSelectedText");
+        
+        if (input.files.length > 0) {
+            selectedFileName.textContent = input.files[0].name;
+            fileNotSelectedText.style.display = "none";
+        } else {
+            selectedFileName.textContent = "파일 선택";
+            fileNotSelectedText.style.display = "block";
+        }
+    }
+</script>
 
 </body>
 

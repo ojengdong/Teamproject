@@ -133,6 +133,12 @@ li {
 .iconBox{
 	width: 50%;
 	margin:0 auto;
+	display: flex;
+	align-items: center;
+}
+
+.iconBox p {
+	margin-right: 8px;
 }
 
 .map_wrap,
