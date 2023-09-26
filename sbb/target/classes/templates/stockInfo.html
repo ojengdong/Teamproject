@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/webjars/bootstrap/5.3.0/dist/css/bootstrap.min.css">
+<head>
+    <title>반도체 기업 주가정보</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .positive {
+            color: red;
+        }
+
+        .negative {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h2>반도체 기업 주가정보</h2>
+    <table>
+        <tr>
+            <th>기업 이름</th>
+            <th>현재 주식 가격</th>
+        </tr>
+        <tr th:each="entry : ${stocks}">
+            <td th:text="${#strings.replace(entry.key,'종목명 ','')}"></td>
+            <td th:class="${entry.value.startsWith('+')} ? 'positive' : 'negative'" th:text="${entry.value}"></td>
+        </tr>
+            <a href="/" style="margin: 10px;" class="btn btn-sm btn-outline-success">Home</a>
+    </table>
+</body>
+</html>
