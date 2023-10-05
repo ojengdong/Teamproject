@@ -131,7 +131,7 @@ li {
 }
 
 .iconBox{
-	width: 50%;
+	width: 100%;
 	margin:0 auto;
 	display: flex;
 	align-items: center;
@@ -161,29 +161,33 @@ li {
 	width: 100%;
 	margin: 20px auto;
 }
+.place{
+	width: 63%;
+	margin: 0 auto;
+}
 
 #map {
-	width: 50%;
+	width: 70%;
 	height: 600px;
 	position: relative;
 	overflow: hidden;
-	margin: 0 auto 50px auto;
+	margin-left:auto;
 	border: 3px solid lightslategray;
 	}
 
 #menu_wrap {
 	position: absolute;
 	top: 0;
-	left: 25%;
+	left: 0%;
 	bottom: 0;
-	width: 250px;
-	margin: 10px 0 30px 10px;
+	width: 300px;
+	height: 600px;
 	padding: 5px;
 	overflow-y: auto;
 	background: rgba(255, 255, 255, 0.7);
 	z-index: 1;
-	font-size: 12px;
-	border-radius: 10px;	
+	font-size: 12px;	
+	border: 3px solid black;
 }
 
 .bg_white {
