@@ -43,6 +43,9 @@ dependencies {
     implementation 'org.webjars.npm:jquery:3.6.4'
     implementation 'org.webjars.npm:bootstrap:5.3.0'
     implementation 'org.webjars.npm:axios:1.4.0'
+    
+     implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 }
 
 
