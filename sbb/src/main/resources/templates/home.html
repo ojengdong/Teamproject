@@ -46,15 +46,6 @@
 				</ul>
 			</div>
 			<div class="imgTxtBox">
-				<div class="searchBox">
-					<form action="https://www.google.com" target="_blank" method="GET">
-
-						<input name="q" type="text" placeholder="검색하시면 Google페이지로 이동합니다." size="100" />
-						<p>
-							<i class="fa-solid fa-magnifying-glass " id="searchIcon"></i>
-						</p>
-					</form>
-				</div>
 				<div class="imgTxt">
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 					<h1>ABOUT US</h1>
@@ -63,6 +54,82 @@
 		</header>
 
 		<main class="mainWrapper">
+
+			<div class="keywordBar">
+				<p>
+					<i class="fa-solid fa-magnifying-glass " id="searchIcon"></i>
+				</p>
+				<input type="text" class="keyword">
+			</div>
+			<div class="keywordTitle">
+				<h1>추천 검색어</h1>
+			</div>
+			<div class="keywordBox">
+				<p>
+					<a class="keywordItem" href="http://localhost:8080/question/list">게시판으로 이동하는 법</a>
+					<a class="keywordItem" href="http://localhost:8080/user/login">로그인하는 법</a>
+					<a class="keywordItem" href="http://localhost:8080/user/signup">회원가입은 어떻게?</a>
+				</p>
+			</div>
+
+			<!-- 북마크 -->
+			<h2 class="bookmarkTitle">북마크</h2>
+			<div class="bookmarkBox">
+				<h2 class="addTitle">
+					<i class="fa-regular fa-bookmark"></i>
+					북마크 추가
+				</h2>
+				<p>관심있는 기업들을 북마크에 추가하고 한눈에 확인해보세요</p>
+				<span class="markIcon"><i class="fa-solid fa-circle-plus fa-2xl"></i></span>
+
+			</div>
+
+			<!-- 토픽 -->
+			<div class="topicBox">
+				<div class="topicTitle">
+					<h2>토픽</h2>
+					<p class="topicTitleIcon"><i class="fa-solid fa-chevron-right"></i></p>
+				</div>
+
+				<div class="topicBtnBox">
+					<input type="radio" id="all" name="show" checked />
+					<input type="radio" id="economy" name="show" />
+					<input type="radio" id="society" name="show" />
+					<input type="radio" id="world" name="show" />
+					<input type="radio" id="IT" name="show" />
+					<div class="tab">
+						<label for="all">종합</label>
+						<label for="economy">경제</label>
+						<label for="society">사회</label>
+						<label for="world">세계</label>
+						<label for="IT">IT</label>
+					</div>
+					<div class="topicContent">
+						<div class="content-dis">
+							<div>종합페이지</div>
+
+						</div>
+						<div class="content-dis">
+							<div>경제페이지</div>
+
+						</div>
+						<div class="content-dis">
+							<div>사회페이지</div>
+
+						</div>
+						<div class="content-dis">
+							<div>세계페이지</div>
+
+						</div>
+						<div class="content-dis">
+							<div>IT페이지</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 지도 -->
 			<div class="place">
 				<div class="iconBox">
 					<p>
@@ -90,6 +157,7 @@
 			</div>
 		</main>
 
+		<!-- footer -->
 		<footer>
 			<div class="footer-wrap">
 				<div class="footerTop">
@@ -256,29 +324,91 @@
 			map.setBounds(bounds);
 		}
 
-		// 검색결과 항목을 Element로 반환하는 함수입니다
-		function getListItem(index, places) {
 
-			var el = document.createElement('li'),
-				itemStr = '<span class="markerbg marker_' + (index + 1) + '"></span>' +
-					'<div class="info">' +
-					'   <h5>' + places.place_name + '</h5>';
+		// 북마크 추가/제거 함수
+		function toggleBookmark(index) {
+			var bookmarkIcon = document.querySelector('.bookmark-icon[data-index="' + index + '"]');
 
-			if (places.road_address_name) {
-				itemStr += '    <span>' + places.road_address_name + '</span>' +
-					'   <span class="jibun gray">' + places.address_name + '</span>';
+			if (bookmarkIcon.classList.contains('selected')) {
+				// 이미 북마크된 상태인 경우, 북마크 제거
+				bookmarkIcon.classList.remove('selected');
+
+				// 선택한 기업 삭제 로직 추가
+				removeBookmark(index);
 			} else {
-				itemStr += '    <span>' + places.address_name + '</span>';
+				// 북마크되지 않은 상태인 경우, 북마크 추가
+				bookmarkIcon.classList.add('selected');
+
+				// 선택한 기업 저장 로직 추가
+				addBookmark(index);
+			}
+		}
+
+		// 북마크 추가 함수
+		function addBookmark(place) {
+			fetch('/addBookmark', {
+				method: 'POST', // HTTP 메서드
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body : JSON.stringify({place: place}), // 서버에 보낼 데이터
+			})
+			.then(response => reponse.json())
+			.then(data =>{
+				console.log(data);
+				displayBookmarks();
+			})
+			.catch((error) =>{
+				console.error('Error:',error);
+			})
+		}
+		
+		// 북마크 제거 함수
+		function removeBookmark(index){
+			fetch('/removeBookmark', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({index: index}),
+			})
+		}
+
+		// 리스트 아이템 생성 함수 (북마크 아이콘 포함)
+		function getListItem(index, place) {
+			var listItem = document.createElement('li');
+
+			var itemStr = '<span class="markerbg marker_' + (index + 1) + '"></span>' +
+				'<div class="info">' +
+				'   <h5>' + place.place_name + '</h5>';
+
+			if (place.road_address_name) {
+				itemStr += '<span>' + place.road_address_name + '</span>' +
+					'<span class="jibun gray">' + place.address_name + '</span>';
+			} else {
+				itemStr += '<span>' + place.address_name + '</span>';
 			}
 
-			itemStr += '  <span class="tel">' + places.phone + '</span>' +
-				'</div>';
+			itemStr += '<i class="fas fa-bookmark bookmark-icon" data-index="'
+				+ index
+				+ '"></i>';
 
-			el.innerHTML = itemStr;
-			el.className = 'item';
+			itemStr += ' <span class="tel">'
+				+ place.phone
+				+ ' </span></div>';
 
-			return el;
+			listItem.innerHTML = itemStr;
+			listItem.className = 'item';
+
+			// 별 아이콘 클릭 이벤트 리스너 등록
+			var bookmarkIcon = listItem.querySelector('.bookmark-icon');
+			bookmarkIcon.addEventListener('click', function () {
+				toggleBookmark(index);
+			});
+
+			return listItem;
 		}
+
 
 		// 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
 		function addMarker(position, idx, title) {

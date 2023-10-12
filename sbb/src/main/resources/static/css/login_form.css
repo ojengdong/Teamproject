@@ -7,6 +7,7 @@
  }
 
  .login-title {
+	border: 2px solid redlrma;
  	text-align: center;
  	font-weight: bold;
  	font-size: 28px;
