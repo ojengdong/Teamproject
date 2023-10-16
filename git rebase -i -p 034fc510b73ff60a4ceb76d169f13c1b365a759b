@@ -1,0 +1,97 @@
+[33mcommit ebcb7f31e2d4cd842a672cccd427aed4808c00bb[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: ojengdong <dutkdgus159@naver.com>
+Date:   Thu Oct 12 17:33:18 2023 +0900
+
+    홈 화면에 검색창, 추천검색어,북마크, 토픽 마크업 및 카카오맵 리스트 각각 북마크 아이콘 추가 및 toggle
+
+[33mcommit 060625cc7a00630f35c6e677885934af99786879[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Tue Oct 10 16:26:29 2023 +0900
+
+    댓글수정 안된거 해결
+
+[33mcommit b38ec0ed6e547c307d243e8eb6cbecc3ba905a43[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Mon Oct 9 22:19:51 2023 +0900
+
+    카카오 키값 추가
+
+[33mcommit b50bb0f40560188ef0b640aa647e0ea811d476c2[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Thu Oct 5 13:44:49 2023 +0900
+
+    지도 리스트 위치변경 및 카카오로그인버튼추가
+
+[33mcommit 5e508d1d6e53241507d7c3cd6289687c995bd664[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Wed Sep 27 03:47:06 2023 +0900
+
+    수정
+
+[33mcommit d2e9416a3094a430ed07bf4ea84251c84e03813a[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Wed Sep 27 00:42:41 2023 +0900
+
+    Spring boot teamProject
+
+[33mcommit 06ff8d130e4fa2cf18919da5b947bc8ebfd3ff36[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Wed Sep 20 17:23:18 2023 +0900
+
+    문의사항 게시글
+
+[33mcommit 034fc510b73ff60a4ceb76d169f13c1b365a759b[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Tue Sep 19 18:51:37 2023 +0900
+
+    footer 수정
+
+[33mcommit 90473bdb7fbfd82a252e8483daa59a32444cb6b3[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Tue Sep 19 02:17:02 2023 +0900
+
+    구글 검색하기추가
+
+[33mcommit 4e1b7503d16415214a6a08f4b671d0ab034de0c1[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Mon Sep 18 17:02:49 2023 +0900
+
+    Freeboard 추가 , 메인화면에 공지사항, 문의하기, 이력서 추가 및 css 수정
+
+[33mcommit be6f2fb7c8065ea24c2c767a2df5f61b2260a5ff[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Mon Sep 18 11:57:22 2023 +0900
+
+    모달 닫기버튼 css추가
+
+[33mcommit 636a2dca9c83955a7739493fb64de984d621dc2e[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Mon Sep 18 00:57:40 2023 +0900
+
+    Register.jsx 취소버튼 누르면 메인화면나오게하기,
+    MapContainer.jsx에서 회원가입버튼 누르면 동의창 컴포넌트로 넘어가기,
+    Join.css 수정
+
+[33mcommit 2b6389ac8a94646a29b2eb84f3fb38e12611805d[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Mon Sep 18 00:47:53 2023 +0900
+
+    클래스 이름 수정
+
+[33mcommit 428f29101b97b15355ab35db1d6afd4824dcd6b6[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Mon Sep 18 00:44:03 2023 +0900
+
+    메세지 수정
+
+[33mcommit ee33f025d43448f56729246b747587cb066a571f[m
+Author: ojengdong <dutkdgus159@nave.com>
+Date:   Sun Sep 17 23:55:45 2023 +0900
+
+    first commint
+
+[33mcommit 98db8ac4359a9a38d61afd2bb35810f012549380[m
+Author: ojengdong <dutkdgus159@naver.com>
+Date:   Wed Sep 6 11:50:10 2023 +0900
+
+    Initialize project using Create React App
