@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layout}">
+<head>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a57bea1f2c403cb9db19d41ea5e4ceab&libraries=services"></script>
+	<meta charset="UTF-8" />
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="css/topic.css">
+</head>
+<body>
+    <main>
+	    <div class="titleBox">
+            <a class="titleName">토픽</a>
+            <p class="newsType">
+                <a href="http://127.0.0.1:5500/topicEconomy.html" class="mainTypeItem">경제</a>
+                <a href="http://127.0.0.1:5500/topicSociety.html" class="typeItem">사회</a>
+                <a href="http://127.0.0.1:5500/topicWorld.html" class="typeItem">세계</a>
+                <a href="http://127.0.0.1:5500/topicIT.html" class="typeItem">IT</a>
+            </p>
+            <hr>
+        </div>
+	    <div class="SearchBar">
+		    <p>
+			    <i class="fa-solid fa-magnifying-glass " id="searchIcon"></i>
+		    </p>
+		    <input type="text" class="Search">
+	    </div>
+	        <!-- <div class="topicWindow">
+                <ul>
+                    <li>
+                        <img src="image/compressimage.jpg" alt="">
+                        <p class="Column">
+                            <a href="https://news.mt.co.kr/mtview.php?no=2023101209092481580">삼성전자, 3분기 호실적 기록…"10월까지는 주가 상승"</a>
+                            <span>
+                                10분 전
+                            </span>
+                            <span class="Company">삼성전자
+
+                            </span>
+                        </p>
+                    </li>
+                    
+                </ul>
+
+            </div> -->
+
+        <div class="topicList">
+            <div class="topicNewsBoxItem">
+                <div class="topicImage">
+                    <img src="image/20200430_194048.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <span class="NewsTitle">
+                            우크라이나 러시아 모스크바에 미사일 공격
+                        </span>
+                    </div>
+                    <div class="timeItem">
+                        <span>
+                            15분 전
+                        </span>
+                    </div>
+                    <div class="keywordItem">
+                        <a class="companyKeyword" href="https://www.samsung.com/sec/">삼성전자</a>
+                    </div>
+                </div>
+            </div>
+            <div class="topicNewsBoxItem">
+                <div class="topicImage">
+                    <img src="image/20200430_194048.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <span class="NewsTitle">
+                            우크라이나 러시아 모스크바에 미사일 공격
+                        </span>
+                    </div>
+                    <div class="timeItem">
+                        <span>
+                            15분 전
+                        </span>
+                    </div>
+                    <div class="keywordItem">
+                        <a class="companyKeyword" href="https://www.samsung.com/sec/">삼성전자</a>
+                    </div>
+                </div>
+            </div>
+            <div class="topicNewsBoxItem">
+                <div class="topicImage">
+                    <img src="image/20200430_194048.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <span class="NewsTitle">
+                            우크라이나 러시아 모스크바에 미사일 공격
+                        </span>
+                    </div>
+                    <div class="timeItem">
+                        <span>
+                            15분 전
+                        </span>
+                    </div>
+                    <div class="keywordItem">
+                        <a class="companyKeyword" href="https://www.samsung.com/sec/">삼성전자</a>
+                    </div>
+                </div>
+            </div>
+            <div class="topicNewsBoxItem">
+                <div class="topicImage">
+                    <img src="image/20200430_194048.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <span class="NewsTitle">
+                            우크라이나 러시아 모스크바에 미사일 공격
+                        </span>
+                    </div>
+                    <div class="timeItem">
+                        <span>
+                            15분 전
+                        </span>
+                    </div>
+                    <div class="keywordItem">
+                        <a class="companyKeyword" href="https://www.samsung.com/sec/">삼성전자</a>
+                    </div>
+                </div>
+            </div>
+            <div class="topicNewsBoxItem">
+                <div class="topicImage">
+                    <img src="image/20200430_194048.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <span class="NewsTitle">
+                            우크라이나 러시아 모스크바에 미사일 공격
+                        </span>
+                    </div>
+                    <div class="timeItem">
+                        <span>
+                            15분 전
+                        </span>
+                    </div>
+                    <div class="keywordItem">
+                        <a class="companyKeyword" href="https://www.samsung.com/sec/">삼성전자</a>
+                    </div>
+                </div>
+            </div>
+            <div class="topicNewsBoxItem">
+                <div class="topicImage">
+                    <img src="image/20200430_194048.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <span class="NewsTitle">
+                            우크라이나 러시아 모스크바에 미사일 공격
+                        </span>
+                    </div>
+                    <div class="timeItem">
+                        <span>
+                            15분 전
+                        </span>
+                    </div>
+                    <div class="keywordItem">
+                        <a class="companyKeyword" href="https://www.samsung.com/sec/">삼성전자</a>
+                    </div>
+                </div>
+            </div>
+            <div class="topicNewsBoxItem">
+                <div class="topicImage">
+                    <img src="image/20200430_194048.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <span class="NewsTitle">
+                            우크라이나 러시아 모스크바에 미사일 공격
+                        </span>
+                    </div>
+                    <div class="timeItem">
+                        <span>
+                            15분 전
+                        </span>
+                    </div>
+                    <div class="keywordItem">
+                        <a class="companyKeyword" href="https://www.samsung.com/sec/">삼성전자</a>
+                    </div>
+                </div>
+            </div>
+            <div class="topicNewsBoxItem">
+                <div class="topicImage">
+                    <img src="image/20200430_194048.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <span class="NewsTitle">
+                            우크라이나 러시아 모스크바에 미사일 공격
+                        </span>
+                    </div>
+                    <div class="timeItem">
+                        <span>
+                            15분 전
+                        </span>
+                    </div>
+                    <div class="keywordItem">
+                        <a class="companyKeyword" href="https://www.samsung.com/sec/">삼성전자</a>
+                    </div>
+                </div>
+            </div>
+            <div class="topicNewsBoxItem">
+                <div class="topicImage">
+                    <img src="image/20200430_194048.png" alt="">
+                </div>
+                <div>
+                    <div>
+                        <span class="NewsTitle">
+                            우크라이나 러시아 모스크바에 미사일 공격
+                        </span>
+                    </div>
+                    <div class="timeItem">
+                        <span>
+                            15분 전
+                        </span>
+                    </div>
+                    <div class="keywordItem">
+                        <a class="companyKeyword" href="https://www.samsung.com/sec/">삼성전자</a>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="More">
+                더보기
+            </button>
+        </div>
+    </main>
+</body>
+</html>

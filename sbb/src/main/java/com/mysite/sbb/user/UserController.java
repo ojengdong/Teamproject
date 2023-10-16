@@ -4,13 +4,13 @@ import jakarta.validation.Valid;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import ch.qos.logback.core.model.Model;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
 	private final UserService userService;
-//	private final KakaoService kakaoService;
+	private final KakaoService kakaoService;
 
 	@GetMapping("/signup")
 	public String signup(UserCreateForm userCreateForm) {
@@ -53,10 +53,8 @@ public class UserController {
 	}
 
 	@GetMapping("/login")
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model) {
-//		model.addAttribute("kakaoURL", kakaoService.getKakaoLogin())
+		model.addAttribute("kakaoUrl", kakaoService.getKakaoLogin());
 		return "login_form";
 	}
-	
 }
