@@ -1,6 +1,8 @@
 package com.mysite.sbb.bookmark;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import org.springframework.ui.Model;
@@ -8,7 +10,7 @@ import org.springframework.ui.Model;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/api")
 public class BookmarkController {
 
@@ -20,18 +22,16 @@ public class BookmarkController {
     }
 
     @PostMapping("/bookmarks")
-    public void addBookmark(@RequestBody Bookmark bookmarkDto) {
+    public ResponseEntity<String> addBookmark(@RequestBody Bookmark bookmarkDto) {
         bookmarkService.addBookmark(bookmarkDto);
+        return ResponseEntity.ok("북마크가 추가되었습니다.");
     }
     
-    @GetMapping("/bookmark_form")
-    public String showBookmarkPage(Model model) {
-        return "bookmark_form";
-    }
-
     @GetMapping("/bookmarks")
-    public String getAllBookmarks() {
-        return "/api/bookmark_form";
+    public String getAllBookmarks(Model model) {
+        List<Bookmark> bookmarks = bookmarkService.getAllbookmarks();
+        model.addAttribute("bookmarks", bookmarks);
+        return "bookmark_form";
     }
 }
 

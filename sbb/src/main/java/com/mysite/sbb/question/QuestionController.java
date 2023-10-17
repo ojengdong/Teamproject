@@ -36,20 +36,20 @@ public class QuestionController {
         Page<Question> paging = this.questionService.getList(page, kw);
         model.addAttribute("paging", paging);
         model.addAttribute("kw", kw);
-        return "question_list";
+        return "question/question_list";
     }
     
     @GetMapping(value = "/detail/{id}")
     public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {
     	Question question = this.questionService.getQuestion(id);
         model.addAttribute("question", question);
-        return "question_detail";
+        return "question/question_detail";
     }
     
     @PreAuthorize("isAuthenticated()")
     @GetMapping("/create")
     public String questionCreate(QuestionForm questionForm) {
-        return "question_form";
+        return "question/question_form";
     }
     
     @PreAuthorize("isAuthenticated()")
@@ -57,7 +57,7 @@ public class QuestionController {
     public String questionCreate(@Valid QuestionForm questionForm, 
     		BindingResult bindingResult, Principal principal) {
         if (bindingResult.hasErrors()) {
-            return "question_form";
+            return "question/question_form";
         }
         SiteUser siteUser = this.userService.getUser(principal.getName());
         this.questionService.create(questionForm.getSubject(), questionForm.getContent(), siteUser);
@@ -73,7 +73,7 @@ public class QuestionController {
         }
         questionForm.setSubject(question.getSubject());
         questionForm.setContent(question.getContent());
-        return "question_form";
+        return "question/question_form";
     }
     
     @PreAuthorize("isAuthenticated()")
@@ -81,7 +81,7 @@ public class QuestionController {
     public String questionModify(@Valid QuestionForm questionForm, BindingResult bindingResult, 
             Principal principal, @PathVariable("id") Integer id) {
         if (bindingResult.hasErrors()) {
-            return "question_form";
+            return "question/question_form";
         }
         Question question = this.questionService.getQuestion(id);
         if (!question.getAuthor().getUsername().equals(principal.getName())) {

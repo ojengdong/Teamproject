@@ -417,7 +417,6 @@
 				addBookmarkSection.style.display = '';
 			}
 		}
-
 		// 새로운 북마크를 서버에 추가
 		function addBookmark(bookmark) {
 			// '/api/bookmarks' 엔드포인트로 POST요청을 보냄
@@ -437,19 +436,19 @@
 
 				})
 				.catch(function (error) {
-					console.error(error);
-				})
+					console.error(error.message);
+				});
 
-			
+
 		}
 		// 북마크 객체 생성
-			var bookmark = {
-				name: "북마크",
-				url: "https://example.com"
-			};
+		var bookmark = {
+			name: "북마크",
+			url: "https://example.com"
+		};
 
-			// 함수 호출하여 북마크 추가
-			addBookmark(bookmark);
+		// 함수 호출하여 북마크 추가
+		addBookmark(bookmark);
 
 		// 서버에서 모든 북마크 정보를 가져옴
 		function getAllBookmarks() {

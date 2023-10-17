@@ -19,11 +19,10 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
 
 	private final UserService userService;
-	private final KakaoService kakaoService;
 
 	@GetMapping("/signup")
 	public String signup(UserCreateForm userCreateForm) {
-		return "signup_form";
+		return "login_signForm/signup_form";
 	}
 
 	@PostMapping("/signup")
@@ -54,7 +53,6 @@ public class UserController {
 
 	@GetMapping("/login")
 	public String login(Model model) {
-		model.addAttribute("kakaoUrl", kakaoService.getKakaoLogin());
-		return "login_form";
+		return "login_signForm/login_form";
 	}
 }
