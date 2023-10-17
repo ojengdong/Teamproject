@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/api")
 public class BookmarkPageController {
 	
-	@GetMapping("/bookmark_form	")
+	@GetMapping("/bookmark_form")
 	public String showBookmarkForm() {
 		return "bookmark_form";
 	}

@@ -422,7 +422,7 @@
 			// '/api/bookmarks' 엔드포인트로 POST요청을 보냄
 			// 이 요청은 새로운 북마크 정보를 JSON 형식으로 포함
 			fetch('/api/bookmarks', {
-				method: 'POST',
+				method: 'GET',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify(bookmark)
 			})
@@ -452,7 +452,7 @@
 
 		// 서버에서 모든 북마크 정보를 가져옴
 		function getAllBookmarks() {
-			fetch('api/bookmarks')
+			fetch('/api/bookmarks')
 				.then(function (response) {
 					if (response.ok) throw new Error("요청 실패");
 					return response.json();

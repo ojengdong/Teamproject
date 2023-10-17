@@ -28,10 +28,7 @@ public class BookmarkController {
     }
     
     @GetMapping("/bookmarks")
-    public String getAllBookmarks(Model model) {
-        List<Bookmark> bookmarks = bookmarkService.getAllbookmarks();
-        model.addAttribute("bookmarks", bookmarks);
-        return "bookmark_form";
+    public String getAllBookmarks() {
+        return "/bookmark_form";
     }
 }
-
